@@ -1,0 +1,1034 @@
+/* ==========================================================================
+   Yoga and Pilates Studio Landing Page — Stylesheet (Mobile-First Architecture)
+   Student: Ерік Самғар | Course: ICT6001 | Lab Work No. 9
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Pastel Light Mode Palette (WCAG AAA/AA Compliant) */
+  --bg-primary: #FAF7F2;
+  --bg-secondary: #F2ECE4;
+  --bg-card: #FFFFFF;
+  --bg-pastel-hero: linear-gradient(135deg, #F6EFEA 0%, #E6EFEA 50%, #F9EBEB 100%);
+  --bg-accent-soft: #E3EFE8;
+  --bg-blush-soft: #F7E6E3;
+  --text-primary: #1F2A24;
+  --text-secondary: #485950;
+  --text-muted: #64756C;
+  --brand-primary: #3A6351;
+  --brand-primary-hover: #2C4E3F;
+  --brand-secondary: #B86B60;
+  --border-subtle: rgba(58, 99, 81, 0.16);
+  --shadow-soft: 0 0.75rem 2rem rgba(31, 42, 36, 0.07);
+  --valid-color: #2E7D5B;
+  --invalid-color: #C94A4A;
+  /* Squircle Topology Corner Rounding */
+  --radius-sm: 0.85rem;
+  --radius-md: 1.35rem;
+  --radius-lg: 2rem;
+  --radius-pill: 999rem;
+  /* Grid System Variables (4-column Mobile First) */
+  --grid-columns: 4;
+  --grid-gap: 1.25rem;
+  --container-pad: 5vw;
+}
+
+/* System Theme Inversion: Low-Intensity Dark Mode */
+html[data-theme="dark"],
+body:has(#theme-toggle:checked) {
+  --bg-primary: #141A17;
+  --bg-secondary: #1C2420;
+  --bg-card: #222C27;
+  --bg-pastel-hero: linear-gradient(135deg, #1B2420 0%, #1F2B25 50%, #292224 100%);
+  --bg-accent-soft: #26352E;
+  --bg-blush-soft: #332726;
+  --text-primary: #EDF2EF;
+  --text-secondary: #C2D1C8;
+  --text-muted: #94A69C;
+  --brand-primary: #76B095;
+  --brand-primary-hover: #8FC4AB;
+  --brand-secondary: #E0988E;
+  --border-subtle: rgba(118, 176, 149, 0.22);
+  --shadow-soft: 0 0.75rem 2rem rgba(0, 0, 0, 0.35);
+  --valid-color: #5CD19A;
+  --invalid-color: #F07575;
+}
+
+html {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 100%;
+  scroll-behavior: smooth;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto 1fr auto;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ==========================================================================
+   1. Header / Nav Component (Adaptive Flex + Mobile Burger Menu)
+   ========================================================================== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--bg-primary);
+  border-bottom: 0.0625rem solid var(--border-subtle);
+  padding: 0.9rem var(--container-pad);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  backdrop-filter: blur(0.75rem);
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.brand-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-accent-soft);
+  padding: 0.35rem;
+}
+
+.brand-subtitle {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Hidden checkbox for pure-CSS burger toggle */
+.nav-toggle-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.burger-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.32rem;
+  width: 2.85rem;
+  height: 2.85rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-secondary);
+  border: 0.0625rem solid var(--border-subtle);
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.burger-line {
+  width: 1.35rem;
+  height: 0.14rem;
+  background-color: var(--text-primary);
+  border-radius: var(--radius-pill);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.nav-toggle-input:checked ~ .burger-button .burger-line:nth-child(1) {
+  transform: translateY(0.46rem) rotate(45deg);
+}
+
+.nav-toggle-input:checked ~ .burger-button .burger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle-input:checked ~ .burger-button .burger-line:nth-child(3) {
+  transform: translateY(-0.46rem) rotate(-45deg);
+}
+
+nav {
+  width: 100%;
+  display: none;
+  padding-top: 0.75rem;
+}
+
+.nav-toggle-input:checked ~ nav {
+  display: block;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: var(--bg-card);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  border: 0.0625rem solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
+}
+
+.nav-list a {
+  display: block;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.nav-list a:hover,
+.nav-list a:focus-visible {
+  background-color: var(--bg-accent-soft);
+  color: var(--brand-primary);
+}
+
+.nav-cta {
+  background-color: var(--brand-primary);
+  color: #FFFFFF !important;
+  text-align: center;
+  border-radius: var(--radius-sm);
+}
+
+.nav-cta:hover {
+  background-color: var(--brand-primary-hover) !important;
+}
+
+/* ==========================================================================
+   2. Hero Section Component (Minimalistic Pastel Background + Thumb Zone CTA)
+   ========================================================================== */
+main {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 3.5rem;
+  padding-bottom: 4rem;
+}
+
+.hero-section {
+  background: var(--bg-pastel-hero);
+  padding: 2.25rem var(--container-pad) 2.75rem;
+  border-bottom: 0.0625rem solid var(--border-subtle);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--grid-gap);
+  align-items: center;
+  max-width: 82rem;
+  margin: 0 auto;
+}
+
+.hero-content,
+.hero-visual {
+  grid-column: 1 / -1;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.eyebrow-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: flex-start;
+  padding: 0.45rem 0.95rem;
+  border-radius: var(--radius-pill);
+  background-color: var(--bg-card);
+  color: var(--brand-primary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  border: 0.0625rem solid var(--border-subtle);
+}
+
+.hero-title {
+  font-size: clamp(2rem, 6vw, 3.35rem);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+}
+
+.hero-description {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 38rem;
+}
+
+/* Ergonomic Thumb Zone placement for mobile interactive CTA controls */
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1.05rem 1.75rem;
+  border-radius: var(--radius-md);
+  background-color: var(--brand-primary);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 1.02rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.cta-button:hover,
+.cta-button:focus-visible {
+  background-color: var(--brand-primary-hover);
+  transform: translateY(-0.12rem);
+}
+
+.secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.98rem;
+  border: 0.0625rem solid var(--border-subtle);
+}
+
+.secondary-button:hover {
+  background-color: var(--bg-accent-soft);
+}
+
+.hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  padding-top: 1rem;
+  border-top: 0.0625rem solid var(--border-subtle);
+}
+
+.metric-item strong {
+  display: block;
+  font-size: 1.3rem;
+  color: var(--brand-primary);
+}
+
+.metric-item span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.hero-visual {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  border: 0.0625rem solid var(--border-subtle);
+  background-color: var(--bg-card);
+}
+
+.hero-visual img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 16 / 9;
+}
+
+.hero-visual figcaption {
+  padding: 0.85rem 1.2rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  background-color: var(--bg-card);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ==========================================================================
+   3. Grid Section Component: Practices, Schedule, Prices & Coaching Staff
+   ========================================================================== */
+.content-section {
+  padding: 0 var(--container-pad);
+  width: 100%;
+  max-width: 82rem;
+  margin: 0 auto;
+}
+
+.section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.section-tag {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--brand-primary);
+}
+
+.section-title {
+  font-size: clamp(1.6rem, 4vw, 2.35rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.section-lead {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  max-width: 44rem;
+}
+
+/* Mobile-First 1-Column Matrix (4-column Grid system where cards span all 4 columns on mobile) */
+.practices-grid,
+.schedule-grid,
+.prices-grid,
+.coaches-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--grid-gap);
+}
+
+.practice-card,
+.schedule-card,
+.price-card,
+.coach-card {
+  grid-column: 1 / -1;
+  background-color: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 0.0625rem solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.practice-card:hover,
+.price-card:hover,
+.coach-card:hover {
+  transform: translateY(-0.2rem);
+}
+
+.practice-media {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-secondary);
+}
+
+.practice-media img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.difficulty-badge {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 700;
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  border: 0.0625rem solid var(--border-subtle);
+}
+
+.practice-body {
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  flex: 1;
+}
+
+.practice-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.practice-summary {
+  font-size: 0.94rem;
+  color: var(--text-secondary);
+}
+
+.practice-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  padding-top: 0.85rem;
+  border-top: 0.0625rem solid var(--border-subtle);
+  font-size: 0.85rem;
+}
+
+.meta-box {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--text-secondary);
+}
+
+.meta-box img {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.practice-footer {
+  padding: 0 1.4rem 1.4rem;
+}
+
+.card-action-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-accent-soft);
+  color: var(--brand-primary);
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.card-action-link:hover {
+  background-color: var(--brand-primary);
+  color: #FFFFFF;
+}
+
+/* Schedule Cards */
+.schedule-card {
+  padding: 1.35rem;
+  gap: 0.85rem;
+}
+
+.schedule-time-tag {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
+  background-color: var(--bg-blush-soft);
+  color: var(--brand-secondary);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* Pricing Cards */
+.price-card {
+  padding: 1.6rem;
+  gap: 1.1rem;
+}
+
+.price-card-featured {
+  border: 0.125rem solid var(--brand-primary);
+  background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-accent-soft) 100%);
+}
+
+.price-amount {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--brand-primary);
+}
+
+.price-amount small {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.price-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+}
+
+/* About Studio & Coaching Staff Cards */
+.coach-card {
+  padding: 1.4rem;
+  gap: 0.75rem;
+}
+
+.coach-role {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--brand-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ==========================================================================
+   4. Feedback Form Component (Pure CSS Validation & Interactive Booking)
+   ========================================================================== */
+.booking-section {
+  padding: 0 var(--container-pad);
+  width: 100%;
+  max-width: 82rem;
+  margin: 0 auto;
+}
+
+.booking-wrapper {
+  background: var(--bg-pastel-hero);
+  border-radius: var(--radius-lg);
+  border: 0.0625rem solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
+  padding: 2rem var(--container-pad);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--grid-gap);
+}
+
+.booking-intro,
+.booking-form {
+  grid-column: 1 / -1;
+}
+
+.booking-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.booking-perks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 0.5rem;
+  font-size: 0.94rem;
+  color: var(--text-secondary);
+}
+
+.booking-form {
+  background-color: var(--bg-card);
+  padding: 1.6rem;
+  border-radius: var(--radius-md);
+  border: 0.0625rem solid var(--border-subtle);
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 1.15rem;
+}
+
+.form-fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.form-label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.required-star {
+  color: var(--brand-secondary);
+  font-size: 0.82rem;
+}
+
+.form-input,
+.form-select {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 0.09375rem solid var(--border-subtle);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 0.96rem;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input:focus,
+.form-select:focus {
+  outline: none;
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 0.2rem rgba(58, 99, 81, 0.18);
+}
+
+/* Pure CSS Input Validation States */
+.form-input:not(:placeholder-shown):valid {
+  border-color: var(--valid-color);
+  background-color: rgba(46, 125, 91, 0.05);
+}
+
+.form-input:not(:placeholder-shown):invalid {
+  border-color: var(--invalid-color);
+  background-color: rgba(201, 74, 74, 0.06);
+}
+
+.validation-hint {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.form-input:not(:placeholder-shown):invalid + .validation-hint {
+  color: var(--invalid-color);
+  font-weight: 600;
+}
+
+.form-input:not(:placeholder-shown):valid + .validation-hint {
+  color: var(--valid-color);
+}
+
+/* Time Markers (Morning / Evening) Radio Group */
+.time-markers-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.radio-card-label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 0.09375rem solid var(--border-subtle);
+  background-color: var(--bg-primary);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.radio-card-label:has(input:checked) {
+  border-color: var(--brand-primary);
+  background-color: var(--bg-accent-soft);
+  color: var(--brand-primary);
+}
+
+.radio-card-label input {
+  accent-color: var(--brand-primary);
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+/* Preparation Level Gradation Range / Selector */
+.level-gradation-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.range-input {
+  width: 100%;
+  accent-color: var(--brand-primary);
+  cursor: pointer;
+}
+
+.gradation-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.booking-status {
+  display: none;
+  padding: 1rem 1.2rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-accent-soft);
+  border: 0.0625rem solid var(--valid-color);
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.booking-status[data-visible="true"] {
+  display: block;
+}
+
+/* ==========================================================================
+   5. Footer Component (Geolocation, Attendance Regulations, Theme Switcher)
+   ========================================================================== */
+footer.site-footer {
+  background-color: var(--bg-secondary);
+  border-top: 0.0625rem solid var(--border-subtle);
+  padding: 3rem var(--container-pad) 2.5rem;
+  color: var(--text-secondary);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 82rem;
+  margin: 0 auto;
+}
+
+.footer-col {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.footer-heading {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.geolocation-list,
+.regulations-list,
+.footer-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+}
+
+.geo-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+}
+
+.geo-item img {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-top: 0.15rem;
+}
+
+/* Low-Intensity Dark Mode Switcher Control */
+.theme-switcher-box {
+  background-color: var(--bg-card);
+  padding: 1.15rem;
+  border-radius: var(--radius-md);
+  border: 0.0625rem solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.theme-toggle-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--text-primary);
+}
+
+.theme-toggle-checkbox {
+  appearance: none;
+  width: 3.2rem;
+  height: 1.75rem;
+  background-color: var(--bg-secondary);
+  border: 0.09375rem solid var(--brand-primary);
+  border-radius: var(--radius-pill);
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.theme-toggle-checkbox::after {
+  content: "";
+  position: absolute;
+  top: 0.18rem;
+  left: 0.2rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  background-color: var(--brand-primary);
+  transition: transform 0.25s ease;
+}
+
+.theme-toggle-checkbox:checked {
+  background-color: var(--bg-accent-soft);
+}
+
+.theme-toggle-checkbox:checked::after {
+  transform: translateX(1.4rem);
+}
+
+.legal-bar {
+  max-width: 82rem;
+  margin: 2.25rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 0.0625rem solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   6. Desktop Responsive Breakpoint: 12-Column Grid & Horizontal Flex Nav
+   ========================================================================== */
+@media (min-width: 1024px) {
+  :root {
+    --grid-columns: 12;
+    --grid-gap: 1.75rem;
+    --container-pad: 4.5vw;
+  }
+
+  header {
+    flex-wrap: nowrap;
+    padding: 1.1rem var(--container-pad);
+  }
+
+  .burger-button {
+    display: none;
+  }
+
+  nav {
+    display: block;
+    width: auto;
+    padding-top: 0;
+  }
+
+  .nav-list {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.4rem;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+  }
+
+  .nav-list a {
+    padding: 0.6rem 1.05rem;
+  }
+
+  .nav-cta {
+    margin-left: 0.5rem;
+    padding: 0.7rem 1.35rem !important;
+  }
+
+  /* 12-Column Desktop Matrix Alignment */
+  .hero-grid {
+    grid-template-columns: repeat(12, 1fr);
+    padding: 1.5rem 0;
+  }
+
+  .hero-content {
+    grid-column: 1 / 7;
+  }
+
+  .hero-visual {
+    grid-column: 7 / 13;
+  }
+
+  .hero-actions {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .practices-grid,
+  .schedule-grid,
+  .prices-grid,
+  .coaches-grid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  .practice-card,
+  .schedule-card,
+  .price-card,
+  .coach-card {
+    grid-column: span 4;
+  }
+
+  .booking-wrapper {
+    grid-template-columns: repeat(12, 1fr);
+    padding: 3rem;
+    align-items: start;
+  }
+
+  .booking-intro {
+    grid-column: 1 / 6;
+  }
+
+  .booking-form {
+    grid-column: 6 / 13;
+    padding: 2.2rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  .footer-col:nth-child(1) {
+    grid-column: 1 / 4;
+  }
+
+  .footer-col:nth-child(2) {
+    grid-column: 4 / 7;
+  }
+
+  .footer-col:nth-child(3) {
+    grid-column: 7 / 10;
+  }
+
+  .footer-col:nth-child(4) {
+    grid-column: 10 / 13;
+  }
+
+  .legal-bar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

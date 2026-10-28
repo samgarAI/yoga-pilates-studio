@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yoga and Pilates Studio Landing Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a href="#hero" class="brand-link">
+      <img src="images/logo-lotus.svg" alt="Yoga and Pilates Studio Lotus Emblem" class="brand-icon">
+      <span>
+        Aura Flow Studio
+        <small class="brand-subtitle">Yoga &amp; Pilates Sanctuary</small>
+      </span>
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Toggle navigation menu">
+    <label for="nav-toggle" class="burger-button" aria-label="Open navigation menu">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </label>
+
+    <nav aria-label="Primary Studio Navigation">
+      <ul class="nav-list">
+        <li><a href="#practices">Practices</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+        <li><a href="#prices">Prices</a></li>
+        <li><a href="#about">About the Studio</a></li>
+        <li><a href="#booking" class="nav-cta">Sign Up for a Free Lesson</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero" class="hero-section" aria-labelledby="hero-heading">
+      <article class="hero-grid">
+        <header class="hero-content">
+          <p class="eyebrow-badge">Mindful Body Practices &bull; Almaty Sanctuary</p>
+          <h1 id="hero-heading" class="hero-title">Find Inner Balance and Strength</h1>
+          <p class="hero-description">
+            Experience harmonious movement in sun-drenched pastel halls. Explore guided Hatha Yoga, invigorating Hot Yoga, and precision Reformer Pilates led by certified biomechanics and mindfulness coaches.
+          </p>
+          <footer class="hero-actions">
+            <a href="#booking" class="cta-button">Sign Up for a Free Lesson</a>
+            <a href="#practices" class="secondary-button">Explore Studio Practices</a>
+          </footer>
+          <ul class="hero-metrics" aria-label="Studio Highlights">
+            <li class="metric-item">
+              <strong>3 Halls</strong>
+              <span>Pastel Acoustic Spaces</span>
+            </li>
+            <li class="metric-item">
+              <strong>12+ Coaches</strong>
+              <span>Certified Masters</span>
+            </li>
+            <li class="metric-item">
+              <strong>07:00–21:30</strong>
+              <span>Daily Sessions</span>
+            </li>
+          </ul>
+        </header>
+
+        <figure class="hero-visual">
+          <img src="images/hero-studio.webp" alt="Minimalistic Yoga and Pilates Studio in Pastel Colors">
+          <figcaption>
+            <span>Main Sunlight Hall &bull; Organic Cork &amp; Ash Wood</span>
+            <strong>Free Trial Available</strong>
+          </figcaption>
+        </figure>
+      </article>
+    </section>
+
+    <section id="practices" class="content-section" aria-labelledby="practices-heading">
+      <header class="section-header">
+        <p class="section-tag">Body Practice Directions</p>
+        <h2 id="practices-heading" class="section-title">Classified Studio Practices</h2>
+        <p class="section-lead">
+          Each direction is structured by preparation gradation, thermal comfort, and session duration to match your personal rhythm.
+        </p>
+      </header>
+
+      <section class="practices-grid" aria-label="Practice Classification Matrix">
+        <article class="practice-card">
+          <figure class="practice-media">
+            <img src="images/hatha-yoga.webp" alt="Hatha Yoga Mindful Alignment Session">
+            <figcaption class="difficulty-badge">Difficulty: Beginner / Level 1–2</figcaption>
+          </figure>
+          <section class="practice-body">
+            <h3 class="practice-title">Hatha Yoga</h3>
+            <p class="practice-summary">
+              Foundational static postures (asanas), pranayama breathwork, and joint mobility sequences designed to restore nervous system equilibrium and postural alignment.
+            </p>
+            <ul class="practice-meta" aria-label="Hatha Yoga Specifications">
+              <li class="meta-box">
+                <img src="images/icon-level.svg" alt="Difficulty Icon">
+                <span><strong>Level:</strong> Gentle / All Levels</span>
+              </li>
+              <li class="meta-box">
+                <img src="images/icon-clock.svg" alt="Session Timing Icon">
+                <span><strong>Timing:</strong> 60 min (08:00 &amp; 18:00)</span>
+              </li>
+            </ul>
+          </section>
+          <footer class="practice-footer">
+            <a href="#booking" class="card-action-link" data-practice="Hatha Yoga">Book Hatha Yoga Hall</a>
+          </footer>
+        </article>
+
+        <article class="practice-card">
+          <figure class="practice-media">
+            <img src="images/hot-yoga.webp" alt="Hot Yoga Infrared Heated Sanctuary">
+            <figcaption class="difficulty-badge">Difficulty: Intermediate / Level 2–3</figcaption>
+          </figure>
+          <section class="practice-body">
+            <h3 class="practice-title">Hot Yoga</h3>
+            <p class="practice-summary">
+              Dynamic detoxifying flow conducted in a humidified infrared hall at 36&deg;C–38&deg;C to accelerate myofascial release, cardiovascular endurance, and deep flexibility.
+            </p>
+            <ul class="practice-meta" aria-label="Hot Yoga Specifications">
+              <li class="meta-box">
+                <img src="images/icon-level.svg" alt="Difficulty Icon">
+                <span><strong>Level:</strong> High Intensity (38&deg;C)</span>
+              </li>
+              <li class="meta-box">
+                <img src="images/icon-clock.svg" alt="Session Timing Icon">
+                <span><strong>Timing:</strong> 75 min (09:30 &amp; 19:30)</span>
+              </li>
+            </ul>
+          </section>
+          <footer class="practice-footer">
+            <a href="#booking" class="card-action-link" data-practice="Hot Yoga">Book Hot Yoga Hall</a>
+          </footer>
+        </article>
+
+        <article class="practice-card">
+          <figure class="practice-media">
+            <img src="images/pilates-reformer.webp" alt="Pilates Reformer and Core Control Studio">
+            <figcaption class="difficulty-badge">Difficulty: Universal / Level 1–3</figcaption>
+          </figure>
+          <section class="practice-body">
+            <h3 class="practice-title">Pilates</h3>
+            <p class="practice-summary">
+              Precision core stabilization and spinal decompression on balanced wooden Reformers and anatomical mats, cultivating deep muscular control without joint impact.
+            </p>
+            <ul class="practice-meta" aria-label="Pilates Specifications">
+              <li class="meta-box">
+                <img src="images/icon-level.svg" alt="Difficulty Icon">
+                <span><strong>Level:</strong> Adaptive Spring Load</span>
+              </li>
+              <li class="meta-box">
+                <img src="images/icon-clock.svg" alt="Session Timing Icon">
+                <span><strong>Timing:</strong> 55 min (07:30 &amp; 18:30)</span>
+              </li>
+            </ul>
+          </section>
+          <footer class="practice-footer">
+            <a href="#booking" class="card-action-link" data-practice="Pilates">Book Pilates Hall</a>
+          </footer>
+        </article>
+      </section>
+    </section>
+
+    <section id="schedule" class="content-section" aria-labelledby="schedule-heading">
+      <header class="section-header">
+        <p class="section-tag">Daily Hall Rhythm</p>
+        <h2 id="schedule-heading" class="section-title">Session Schedule &amp; Hall Capacity</h2>
+        <p class="section-lead">
+          Morning and evening windows curated for optimal circadian energy and small-group personal attention.
+        </p>
+      </header>
+
+      <section class="schedule-grid" aria-label="Daily Class Schedule">
+        <article class="schedule-card">
+          <span class="schedule-time-tag">Morning Window &bull; 07:30 – 11:00</span>
+          <h3>Sunrise Awakening Sessions</h3>
+          <p><strong>07:30</strong> — Pilates Reformer Core (Hall B &bull; 8 mats/reformers)</p>
+          <p><strong>08:30</strong> — Hatha Yoga Breath &amp; Spine (Hall A &bull; 12 spaces)</p>
+          <p><strong>09:45</strong> — Hot Yoga Flow 37&deg;C (Thermal Hall C &bull; 10 spaces)</p>
+        </article>
+
+        <article class="schedule-card">
+          <span class="schedule-time-tag">Daylight Window &bull; 12:30 – 16:00</span>
+          <h3>Midday Mobility &amp; Recovery</h3>
+          <p><strong>12:30</strong> — Postural Pilates Express (Hall B &bull; 8 spaces)</p>
+          <p><strong>14:00</strong> — Hatha Restorative Alignment (Hall A &bull; 12 spaces)</p>
+          <p><strong>15:15</strong> — Myofascial Release &amp; Stretch (Hall A &bull; 12 spaces)</p>
+        </article>
+
+        <article class="schedule-card">
+          <span class="schedule-time-tag">Evening Window &bull; 18:00 – 21:00</span>
+          <h3>Sunset Decompression &amp; Strength</h3>
+          <p><strong>18:00</strong> — Hatha Yoga Deep Balance (Hall A &bull; 12 spaces)</p>
+          <p><strong>18:30</strong> — Pilates Reformer Sculpt (Hall B &bull; 8 spaces)</p>
+          <p><strong>19:30</strong> — Hot Yoga Detox &amp; Calm (Thermal Hall C &bull; 10 spaces)</p>
+        </article>
+      </section>
+    </section>
+
+    <section id="prices" class="content-section" aria-labelledby="prices-heading">
+      <header class="section-header">
+        <p class="section-tag">Transparent Memberships</p>
+        <h2 id="prices-heading" class="section-title">Studio Passes &amp; Trial Options</h2>
+        <p class="section-lead">
+          All memberships include organic linen towels, natural cork mats, filtered electrolyte water, and locker access.
+        </p>
+      </header>
+
+      <section class="prices-grid" aria-label="Membership Pricing Tiers">
+        <article class="price-card">
+          <header>
+            <p class="section-tag">First Visit</p>
+            <h3>Introductory Free Lesson</h3>
+            <p class="price-amount">0 &#8376; <small>/ first diagnostic class</small></p>
+          </header>
+          <ul class="price-features">
+            <li>&bull; 60-minute guided Hatha, Hot Yoga, or Pilates session</li>
+            <li>&bull; Personal posture &amp; preparation level assessment</li>
+            <li>&bull; Complimentary mat, blocks, and herbal tea lounge</li>
+          </ul>
+          <footer>
+            <a href="#booking" class="card-action-link">Claim Free Trial Pass</a>
+          </footer>
+        </article>
+
+        <article class="price-card price-card-featured">
+          <header>
+            <p class="section-tag">Most Popular</p>
+            <h3>Harmony 8-Session Pass</h3>
+            <p class="price-amount">34 000 &#8376; <small>/ 30 days validity</small></p>
+          </header>
+          <ul class="price-features">
+            <li>&bull; Access to all Hatha Yoga, Hot Yoga &amp; Mat Pilates halls</li>
+            <li>&bull; Flexible Morning / Evening booking in 1 click</li>
+            <li>&bull; 7-day freeze option &amp; guest pass included</li>
+          </ul>
+          <footer>
+            <a href="#booking" class="cta-button">Select 8-Session Pass</a>
+          </footer>
+        </article>
+
+        <article class="price-card">
+          <header>
+            <p class="section-tag">Complete Sanctuary</p>
+            <h3>Unlimited Balance Club</h3>
+            <p class="price-amount">58 000 &#8376; <small>/ monthly unlimited</small></p>
+          </header>
+          <ul class="price-features">
+            <li>&bull; Unlimited daily visits across all 3 specialized halls</li>
+            <li>&bull; Priority Reformer Pilates machine reservation</li>
+            <li>&bull; Monthly 1-on-1 biomechanics checkup with senior coach</li>
+          </ul>
+          <footer>
+            <a href="#booking" class="card-action-link">Select Unlimited Club</a>
+          </footer>
+        </article>
+      </section>
+    </section>
+
+    <section id="about" class="content-section" aria-labelledby="about-heading">
+      <header class="section-header">
+        <p class="section-tag">About the Studio &amp; Coaching Staff</p>
+        <h2 id="about-heading" class="section-title">Guided by Certified Movement Masters</h2>
+        <p class="section-lead">
+          Our studio unites acoustic pastel architecture with evidence-based movement instruction. Meet the mentors guiding your practice.
+        </p>
+      </header>
+
+      <section class="coaches-grid" aria-label="Coaching Staff">
+        <article class="coach-card">
+          <p class="coach-role">Lead Hatha &amp; Pranayama Mentor</p>
+          <h3>Aigerim Nurlanova</h3>
+          <p>RYT-500 certified instructor with 9 years of therapeutic spinal alignment and mindfulness meditation experience.</p>
+        </article>
+
+        <article class="coach-card">
+          <p class="coach-role">Hot Yoga &amp; Mobility Specialist</p>
+          <h3>Timur Kassymov</h3>
+          <p>Sports physiology graduate specializing in thermal endurance, myofascial release, and safe flexibility progression.</p>
+        </article>
+
+        <article class="coach-card">
+          <p class="coach-role">Senior Reformer Pilates Director</p>
+          <h3>Elena Voronova</h3>
+          <p>Polestar Pilates certified practitioner focused on core biomechanics, postpartum recovery, and athletic posture.</p>
+        </article>
+      </section>
+    </section>
+
+    <section id="booking" class="booking-section" aria-labelledby="booking-heading">
+      <article class="booking-wrapper">
+        <header class="booking-intro">
+          <p class="section-tag">Online Hall Reservation</p>
+          <h2 id="booking-heading" class="section-title">Sign Up for a Free Lesson</h2>
+          <p class="section-lead">
+            Reserve your spot in our Hatha, Hot Yoga, or Pilates halls. Fill out the registration window below — our coordinator will confirm your mat or Reformer station.
+          </p>
+          <ul class="booking-perks">
+            <li>&check; Instant hall confirmation via SMS / WhatsApp</li>
+            <li>&check; Complimentary organic mat, blocks &amp; towel kit</li>
+            <li>&check; Tailored load gradation for your preparation level</li>
+          </ul>
+        </header>
+
+        <form id="registration-form" class="booking-form" action="#booking" method="get">
+          <fieldset class="form-fieldset">
+            <label for="full-name" class="form-label">
+              <span>Full Name</span>
+              <span class="required-star">Required *</span>
+            </label>
+            <input
+              type="text"
+              id="full-name"
+              name="fullName"
+              class="form-input"
+              placeholder="e.g., Erik Samgar"
+              minlength="2"
+              required
+            >
+            <small class="validation-hint">Please enter your first and last name (at least 2 characters).</small>
+          </fieldset>
+
+          <fieldset class="form-fieldset">
+            <label for="phone-number" class="form-label">
+              <span>Phone</span>
+              <span class="required-star">Required *</span>
+            </label>
+            <input
+              type="tel"
+              id="phone-number"
+              name="phone"
+              class="form-input"
+              placeholder="+7 (701) 555-01-99"
+              pattern="[\+\d\s\(\)\-]{10,20}"
+              required
+            >
+            <small class="validation-hint">Format: +7 (7XX) XXX-XX-XX (10–15 digits).</small>
+          </fieldset>
+
+          <fieldset class="form-fieldset">
+            <label for="client-email" class="form-label">
+              <span>Email for Hall Pass</span>
+              <span class="required-star">Required *</span>
+            </label>
+            <input
+              type="email"
+              id="client-email"
+              name="email"
+              class="form-input"
+              placeholder="samgar.erik@example.com"
+              required
+            >
+            <small class="validation-hint">Valid email address required for calendar pass delivery.</small>
+          </fieldset>
+
+          <fieldset class="form-fieldset">
+            <label for="practice-direction" class="form-label">
+              <span>Practice Direction</span>
+              <span class="required-star">Select Hall</span>
+            </label>
+            <select id="practice-direction" name="practiceDirection" class="form-select" required>
+              <option value="Hatha Yoga">Hatha Yoga — Hall A (60 min)</option>
+              <option value="Hot Yoga">Hot Yoga 38&deg;C — Thermal Hall C (75 min)</option>
+              <option value="Pilates">Pilates Reformer — Hall B (55 min)</option>
+            </select>
+          </fieldset>
+
+          <fieldset class="form-fieldset">
+            <span class="form-label">Preferred Time Marker (Morning / Evening)</span>
+            <section class="time-markers-group" aria-label="Preferred Time Window">
+              <label class="radio-card-label">
+                <input type="radio" name="timeMarker" value="Morning (07:30 - 11:00)" checked required>
+                <span>Morning (07:30–11:00)</span>
+              </label>
+              <label class="radio-card-label">
+                <input type="radio" name="timeMarker" value="Evening (18:00 - 21:00)" required>
+                <span>Evening (18:00–21:00)</span>
+              </label>
+            </section>
+          </fieldset>
+
+          <fieldset class="form-fieldset level-gradation-group">
+            <label for="prep-level" class="form-label">
+              <span>Current Preparation Level Gradation</span>
+              <output id="prep-level-output" for="prep-level">Level 2 — Intermediate</output>
+            </label>
+            <input
+              type="range"
+              id="prep-level"
+              name="preparationLevel"
+              class="range-input"
+              min="1"
+              max="3"
+              step="1"
+              value="2"
+              required
+            >
+            <ul class="gradation-labels" aria-hidden="true">
+              <li>1 &bull; Beginner</li>
+              <li>2 &bull; Intermediate</li>
+              <li>3 &bull; Advanced</li>
+            </ul>
+          </fieldset>
+
+          <button type="submit" class="cta-button">Sign Up for a Free Lesson</button>
+          <p id="booking-feedback" class="booking-status" role="status" aria-live="polite"></p>
+        </form>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <section class="footer-grid" aria-label="Footer Information">
+      <article class="footer-col">
+        <h3 class="footer-heading">Aura Flow &bull; Yoga &amp; Pilates</h3>
+        <p>
+          A visually harmonious body-practice sanctuary in Almaty dedicated to mindful movement, breath equilibrium, and evidence-based core conditioning.
+        </p>
+        <ul class="footer-nav-links" aria-label="Footer Quick Links">
+          <li><a href="#practices">Practices</a></li>
+          <li><a href="#schedule">Schedule</a></li>
+          <li><a href="#prices">Prices</a></li>
+          <li><a href="#about">About the Studio</a></li>
+        </ul>
+      </article>
+
+      <article class="footer-col">
+        <h3 class="footer-heading">Geolocation of the Halls</h3>
+        <ul class="geolocation-list">
+          <li class="geo-item">
+            <img src="images/icon-location.svg" alt="Location Pin">
+            <span><strong>Hall A &amp; B (Sunlight &amp; Reformer):</strong> Almaty, Dostyk Ave 132, 2nd Floor (Botanical Garden Quarter)</span>
+          </li>
+          <li class="geo-item">
+            <img src="images/icon-location.svg" alt="Location Pin">
+            <span><strong>Hall C (Infrared Hot Yoga Sanctuary):</strong> Almaty, Rozybakiev St 247A, Eco-Atrium Wing</span>
+          </li>
+          <li><strong>Coordinates:</strong> 43.2389&deg; N, 76.8897&deg; E &bull; Free Courtyard Parking</li>
+        </ul>
+      </article>
+
+      <article class="footer-col">
+        <h3 class="footer-heading">Attendance Regulations</h3>
+        <ul class="regulations-list">
+          <li>&bull; Arrive 10–15 minutes prior to session start for calm check-in and mat setup.</li>
+          <li>&bull; Phones and smartwatches are switched to silent mode inside practice halls.</li>
+          <li>&bull; Free cancellation or time-slot transfer is available up to 4 hours before class.</li>
+          <li>&bull; Clean non-slip grip socks are recommended for Reformer Pilates sessions.</li>
+        </ul>
+      </article>
+
+      <article class="footer-col">
+        <h3 class="footer-heading">System Theme Inversion</h3>
+        <section class="theme-switcher-box" aria-label="Interface Theme Mode Selector">
+          <label for="theme-toggle" class="theme-toggle-label">
+            <span>Low-Intensity Dark Mode</span>
+            <input type="checkbox" id="theme-toggle" class="theme-toggle-checkbox" aria-label="Switch to low-intensity dark mode">
+          </label>
+          <p>
+            Reduces screen luminance with WCAG-compliant muted sage and warm charcoal contrast for evening browsing.
+          </p>
+        </section>
+      </article>
+    </section>
+
+    <section class="legal-bar" aria-label="Legal Information">
+      <p>&copy; 2026 Aura Flow Yoga &amp; Pilates Studio. Student Project by Ерік Самғар (ICT6001 — Lab Work No. 9).</p>
+      <p>Public Offer Agreement &bull; Personal Data Privacy Policy (Law of RK) &bull; WCAG 2.1 AA Compliant</p>
+    </section>
+  </footer>
+
+  <script>
+    (function () {
+      const themeToggle = document.getElementById('theme-toggle');
+      const rootHtml = document.documentElement;
+      const prepRange = document.getElementById('prep-level');
+      const prepOutput = document.getElementById('prep-level-output');
+      const form = document.getElementById('registration-form');
+      const feedback = document.getElementById('booking-feedback');
+      const practiceSelect = document.getElementById('practice-direction');
+      const navToggle = document.getElementById('nav-toggle');
+
+      const levelNames = {
+        '1': 'Level 1 — Beginner (Gentle Foundation)',
+        '2': 'Level 2 — Intermediate (Balanced Flow)',
+        '3': 'Level 3 — Advanced (Deep Mastery)'
+      };
+
+      if (themeToggle) {
+        themeToggle.addEventListener('change', function () {
+          const nextTheme = themeToggle.checked ? 'dark' : 'light';
+          rootHtml.setAttribute('data-theme', nextTheme);
+          try {
+            localStorage.setItem('studio_theme', nextTheme);
+          } catch (e) {}
+        });
+
+        try {
+          const saved = localStorage.getItem('studio_theme');
+          if (saved === 'dark') {
+            themeToggle.checked = true;
+            rootHtml.setAttribute('data-theme', 'dark');
+          }
+        } catch (e) {}
+      }
+
+      if (prepRange && prepOutput) {
+        prepRange.addEventListener('input', function () {
+          prepOutput.textContent = levelNames[prepRange.value] || 'Level 2 — Intermediate';
+        });
+      }
+
+      document.querySelectorAll('[data-practice]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const chosen = btn.getAttribute('data-practice');
+          if (practiceSelect && chosen) {
+            practiceSelect.value = chosen;
+          }
+        });
+      });
+
+      document.querySelectorAll('.nav-list a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          if (navToggle) {
+            navToggle.checked = false;
+          }
+        });
+      });
+
+      if (form && feedback) {
+        form.addEventListener('submit', function (event) {
+          event.preventDefault();
+          const fullName = document.getElementById('full-name').value.trim();
+          const phone = document.getElementById('phone-number').value.trim();
+          const practice = practiceSelect ? practiceSelect.value : 'Yoga';
+          const timeMarkerInput = form.querySelector('input[name="timeMarker"]:checked');
+          const timeMarker = timeMarkerInput ? timeMarkerInput.value : 'Morning';
+          const prepText = prepOutput ? prepOutput.textContent : 'Level 2';
+
+          feedback.setAttribute('data-visible', 'true');
+          feedback.textContent = 'Reservation confirmed for ' + fullName + ' (' + phone + '): Free lesson in ' + practice + ' [' + timeMarker + ', ' + prepText + ']. We look forward to welcoming you!';
+          form.reset();
+          if (prepOutput) {
+            prepOutput.textContent = levelNames['2'];
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
